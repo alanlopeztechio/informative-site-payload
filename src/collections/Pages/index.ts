@@ -14,6 +14,7 @@ import { slugField } from '@/fields/slug'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
+import Acordeon from '../../blocks/Acordeon/config'
 
 import {
   MetaDescriptionField,
@@ -77,6 +78,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
+<<<<<<< HEAD
               blocks: [
                 CallToAction,
                 Content,
@@ -86,6 +88,9 @@ export const Pages: CollectionConfig<'pages'> = {
                 ContentWithMedia,
                 SliderCompnent,
               ],
+=======
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, Acordeon],
+>>>>>>> 9cb1ec71 (Update2)
               required: true,
               admin: {
                 initCollapsed: true,

@@ -7,13 +7,18 @@ import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
+<<<<<<< HEAD
 import { ContetWithMediaBlock } from './ContentWithMedia/Component'
 import { SliderCompnent } from './SliderBlock/config'
+=======
+import { Acordeon } from './Acordeon/Component'
+>>>>>>> 9cb1ec71 (Update2)
 
 const blockComponents = {
   archive: ArchiveBlock,
   content: ContentBlock,
   cta: CallToActionBlock,
+  acordeon: Acordeon,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
   contentWithMedia: ContetWithMediaBlock,
