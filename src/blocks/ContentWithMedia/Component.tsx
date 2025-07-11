@@ -47,4 +47,5 @@ export const ContetWithMediaBlock: React.FC<ContentWithMedia> = (props: ContentW
       </div>
     )
   }
+  return null
 }
