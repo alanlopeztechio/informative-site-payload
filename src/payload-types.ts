@@ -191,7 +191,7 @@ export interface Page {
       | null;
     media?: (number | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | ContentWithMedia)[];
+  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | ContentWithMedia | Slider)[];
   meta?: {
     title?: string | null;
     /**
@@ -762,6 +762,23 @@ export interface ContentWithMedia {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Slider".
+ */
+export interface Slider {
+  slider?:
+    | {
+        userTeam?: string | null;
+        userDescription?: string | null;
+        image?: (number | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'slider';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1052,6 +1069,7 @@ export interface PagesSelect<T extends boolean = true> {
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
         contentWithMedia?: T | ContentWithMediaSelect<T>;
+        slider?: T | SliderSelect<T>;
       };
   meta?:
     | T
@@ -1159,6 +1177,22 @@ export interface ContentWithMediaSelect<T extends boolean = true> {
   content?: T;
   image?: T;
   textPosition?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Slider_select".
+ */
+export interface SliderSelect<T extends boolean = true> {
+  slider?:
+    | T
+    | {
+        userTeam?: T;
+        userDescription?: T;
+        image?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
