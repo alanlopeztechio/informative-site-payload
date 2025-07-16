@@ -1,4 +1,4 @@
-import { Block } from 'payload';
+import { Block } from 'payload'
 import {
   FixedToolbarFeature,
   HeadingFeature,
@@ -8,6 +8,7 @@ import {
 
 export const MediaBlock: Block = {
   slug: 'mediaBlock',
+  interfaceName: 'MediaBlock',
   labels: {
     singular: 'Bloque de imagen',
     plural: 'Bloques de imagen',
@@ -24,17 +25,12 @@ export const MediaBlock: Block = {
       name: 'caption',
       label: 'Pie de imagen',
       type: 'richText',
-     
+
       editor: lexicalEditor({
-        features: [
-          HeadingFeature(),
-          InlineToolbarFeature(),
-          FixedToolbarFeature(),
-        ],
+        features: [HeadingFeature(), InlineToolbarFeature(), FixedToolbarFeature()],
       }),
-      
     },
-    
+
     {
       name: 'imageSize',
       label: 'Tamaño de imagen',
@@ -47,6 +43,5 @@ export const MediaBlock: Block = {
       ],
       required: true,
     },
-    
   ],
-};
+}
