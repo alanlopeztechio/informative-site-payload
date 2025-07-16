@@ -199,7 +199,7 @@ export interface Page {
     | FormBlock
     | ContentWithMedia
     | ImagenConTextoBlock
-    | ImagenConTextoBlock
+    | BloqueInformativo
   )[];
   meta?: {
     title?: string | null;
@@ -790,6 +790,33 @@ export interface ContentWithMedia {
  * via the `definition` "ImagenConTextoBlock".
  */
 export interface ImagenConTextoBlock {
+  texto: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  imagen: number | Media;
+  posicion?: ('izquierda' | 'derecha') | null;
+  anchoImagen?: ('25' | '33' | '50') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'imagenConTexto';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BloqueInformativo".
+ */
+export interface BloqueInformativo {
   icono?:
     | (
         | 'AArrowDown'
@@ -2568,7 +2595,7 @@ export interface PagesSelect<T extends boolean = true> {
         formBlock?: T | FormBlockSelect<T>;
         contentWithMedia?: T | ContentWithMediaSelect<T>;
         imagenConTexto?: T | ImagenConTextoBlockSelect<T>;
-        BloqueInformativo?: T | ImagenConTextoBlockSelect<T>;
+        BloqueInformativo?: T | BloqueInformativoSelect<T>;
       };
   meta?:
     | T
@@ -2686,6 +2713,18 @@ export interface ContentWithMediaSelect<T extends boolean = true> {
  * via the `definition` "ImagenConTextoBlock_select".
  */
 export interface ImagenConTextoBlockSelect<T extends boolean = true> {
+  texto?: T;
+  imagen?: T;
+  posicion?: T;
+  anchoImagen?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BloqueInformativo_select".
+ */
+export interface BloqueInformativoSelect<T extends boolean = true> {
   icono?: T;
   titulo?: T;
   subtitulo?: T;
