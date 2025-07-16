@@ -7,21 +7,12 @@ import { CallToAction } from '../../blocks/CallToAction/config'
 import { Content } from '../../blocks/Content/config'
 import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
-import { PriceBlock } from '@/blocks/PriceBlock/config'
 import { ContentWithMedia } from '@/blocks/ContentWithMedia/config'
-import { Text } from '@/blocks/Text/config'
-import { Column } from '@/blocks/Column/config'
-import { Row } from '@/blocks/Row/config'
 import { hero } from '@/heros/config'
 import { slugField } from '@/fields/slug'
-import { Section } from '@/blocks/Section/config'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
-import { Acordeon as AcordeonBlock } from '@/blocks/Acordeon/config'
-import { ImagenConTextoBlock } from '../../blocks/ImagenConTextoBlock'
-import { BloqueInformativo } from '@/blocks/BloqueInformativo/config'
-import { Carousel } from '@/blocks/Carousel/config'
 
 import {
   MetaDescriptionField,
@@ -29,7 +20,9 @@ import {
   MetaTitleField,
   OverviewField,
   PreviewField,
-} from '@payloadcms/plugin-seo/fields'
+} from '@payloadcms/plugin-seo/fields';
+import { ImagenConTextoBlock } from '../../blocks/ImagenConTextoBlock'
+import { BloqueInformativo } from '@/blocks/BloqueInformativo/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -85,23 +78,16 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [],
-              blockReferences: [
-                'acordeon',
-                'archive',
-                'bloqueInformativo',
-                'cta',
-                'carousel',
-                'content',
-                'contentWithMedia',
-                'formBlock',
-                'imagenConTexto',
-                'mediaBlock',
-                'priceBlock',
-                'row',
-                'section',
-                'text',
-                'carouselAvatar',
+             
+              blocks: [
+                CallToAction,
+                Content,
+                MediaBlock,
+                Archive,
+                FormBlock,
+                ContentWithMedia,
+                ImagenConTextoBlock,
+                BloqueInformativo,
               ],
               required: true,
               admin: {

@@ -1,14 +1,13 @@
-import React from 'react'
-import RichText from '@/components/RichText'
-import { ImagenConTextoBlock } from '@/payload-types'
+import React from 'react';
+import RichText from '@/components/RichText';
 
-const ImagenConTextoComponent: React.FC<ImagenConTextoBlock> = ({
+const ImagenConTextoComponent: React.FC<any> = ({
   texto,
   imagen,
   posicion = 'izquierda',
   anchoImagen = '33',
 }) => {
-  const flexDirection = posicion === 'derecha' ? 'row-reverse' : 'row'
+  const flexDirection = posicion === 'derecha' ? 'row-reverse' : 'row';
 
   return (
     <div
@@ -27,7 +26,7 @@ const ImagenConTextoComponent: React.FC<ImagenConTextoBlock> = ({
           flexWrap: 'wrap',
         }}
       >
-        {imagen && typeof imagen !== 'number' && imagen.url && (
+        {imagen?.url && (
           <img
             src={imagen.url}
             alt=""
@@ -53,7 +52,7 @@ const ImagenConTextoComponent: React.FC<ImagenConTextoBlock> = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ImagenConTextoComponent
+export default ImagenConTextoComponent;

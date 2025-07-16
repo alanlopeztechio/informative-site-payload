@@ -1,24 +1,23 @@
-import type { StaticImageData } from 'next/image'
-import React from 'react'
-import { cn } from '@/utilities/ui'
-import RichText from '@/components/RichText'
-import { Media } from '../../components/Media'
-import { MediaBlock as Prop } from '@/payload-types'
+import type { StaticImageData } from 'next/image';
+import React from 'react';
+import { cn } from '@/utilities/ui';
+import RichText from '@/components/RichText';
+import { Media } from '../../components/Media';
 
-type ImageSize = 'sm' | 'md' | 'lg'
+type ImageSize = 'sm' | 'md' | 'lg';
 
-type Props = Prop & {
-  media?: any
-  caption?: any
-  imageSize?: ImageSize
-  breakout?: boolean
-  captionClassName?: string
-  className?: string
-  enableGutter?: boolean
-  imgClassName?: string
-  staticImage?: StaticImageData
-  disableInnerContainer?: boolean
-}
+type Props = {
+  media?: any;
+  caption?: any;
+  imageSize?: ImageSize;
+  breakout?: boolean;
+  captionClassName?: string;
+  className?: string;
+  enableGutter?: boolean;
+  imgClassName?: string;
+  staticImage?: StaticImageData;
+  disableInnerContainer?: boolean;
+};
 
 export const MediaBlock: React.FC<Props> = (props) => {
   const {
@@ -31,22 +30,22 @@ export const MediaBlock: React.FC<Props> = (props) => {
     staticImage,
     disableInnerContainer,
     imageSize = 'md',
-  } = props
+  } = props;
 
   const getImageSizeClass = (size: ImageSize) => {
     switch (size) {
       case 'sm':
-        return 'max-w-[200px]'
+        return 'max-w-[200px]';
       case 'md':
-        return 'max-w-[400px]'
+        return 'max-w-[400px]';
       case 'lg':
-        return 'max-w-[600px]'
+        return 'max-w-[600px]';
       default:
-        return 'max-w-[400px]'
+        return 'max-w-[400px]';
     }
-  }
-
-  const imgSizeClass = getImageSizeClass(imageSize)
+  };
+   
+  const imgSizeClass = getImageSizeClass(imageSize);
 
   return (
     <div className={cn({ container: enableGutter }, className)}>
@@ -56,7 +55,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
           className={cn(
             'mb-4 text-center', // centrado con margen inferior
             { container: !disableInnerContainer },
-            captionClassName,
+            captionClassName
           )}
         >
           <RichText data={caption} enableGutter={false} />
@@ -70,7 +69,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
             imgClassName={cn(
               'border border-border rounded-[0.8rem] mx-auto',
               imgSizeClass,
-              imgClassName,
+              imgClassName
             )}
             resource={media}
             src={staticImage}
@@ -78,5 +77,5 @@ export const MediaBlock: React.FC<Props> = (props) => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
