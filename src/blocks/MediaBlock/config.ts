@@ -19,6 +19,7 @@ export const MediaBlock: Block = {
       label: 'Imagen',
       type: 'upload',
       relationTo: 'media',
+
       required: true,
     },
     {
@@ -35,6 +36,7 @@ export const MediaBlock: Block = {
       name: 'imageSize',
       label: 'Tamaño de imagen',
       type: 'select',
+
       defaultValue: 'md',
       options: [
         { label: 'Pequeña ', value: 'sm' },
