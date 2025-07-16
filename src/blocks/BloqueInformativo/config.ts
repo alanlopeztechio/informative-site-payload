@@ -11,7 +11,7 @@ import { icons } from 'lucide-react' // Solo para generar las opciones del selec
 
 export const BloqueInformativo: Block = {
   slug: 'BloqueInformativo',
-  interfaceName: 'ImagenConTextoBlock',
+  interfaceName: 'BloqueInformativo',
   labels: {
     singular: 'Bloque Informativo',
     plural: 'Bloques Informativos',
