@@ -1,4 +1,4 @@
-import { Block } from 'payload';
+import { Block } from 'payload'
 import {
   FixedToolbarFeature,
   HeadingFeature,
@@ -8,6 +8,7 @@ import {
 
 export const ImagenConTextoBlock: Block = {
   slug: 'imagenConTexto',
+  interfaceName: 'ImagenConTextoBlock',
   labels: {
     singular: 'Imagen con texto',
     plural: 'Imágenes con texto',
@@ -18,13 +19,9 @@ export const ImagenConTextoBlock: Block = {
       type: 'richText',
       label: 'Texto',
       required: true,
-       editor: lexicalEditor({
-              features: [
-                HeadingFeature(),
-                InlineToolbarFeature(),
-                FixedToolbarFeature(),
-              ],
-            })
+      editor: lexicalEditor({
+        features: [HeadingFeature(), InlineToolbarFeature(), FixedToolbarFeature()],
+      }),
     },
     {
       name: 'imagen',
@@ -55,4 +52,4 @@ export const ImagenConTextoBlock: Block = {
       defaultValue: '33',
     },
   ],
-};
+}
