@@ -7,12 +7,10 @@ import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
-<<<<<<< HEAD
 import { ContetWithMediaBlock } from './ContentWithMedia/Component'
 import { SliderCompnent } from './SliderBlock/config'
-=======
-import { Acordeon } from './Acordeon/Component'
->>>>>>> 9cb1ec71 (Update2)
+import Acordeon from './Acordeon/config'
+import Carousel from './Carousel/config'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -21,6 +19,7 @@ const blockComponents = {
   acordeon: Acordeon,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
+  carousel: Carousel,
   contentWithMedia: ContetWithMediaBlock,
   slider: SliderCompnent,
 }
