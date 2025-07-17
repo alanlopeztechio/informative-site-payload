@@ -18,13 +18,6 @@ export const BloqueInformativo: Block = {
   },
   fields: [
     {
-      name: 'icono',
-      type: 'select',
-      label: 'Ícono',
-      options: Object.keys(icons).sort(),
-      required: false,
-    },
-    {
       name: 'titulo',
       type: 'text',
       label: 'Título',
