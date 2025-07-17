@@ -14,7 +14,7 @@ export const Carousel = ({
   imagenes,
 }: {
   titulo: string;
-  imagenes: { imagen: string; alt?: string }[];
+  imagenes: { imagen: string | { url: string }; alt?: string }[];
 }) => {
   return (
     <section className="py-12">
@@ -25,7 +25,7 @@ export const Carousel = ({
             {imagenes.map((img, i) => (
               <CarouselItem key={i} className="flex justify-center items-center">
                 <img
-                  src={img.imagen}
+                  src={typeof img.imagen === "string" ? img.imagen : (img.imagen as { url: string }).url}
                   alt={img.alt || ""}
                   className="w-full h-64 object-cover rounded-lg border"
                 />
