@@ -13,6 +13,7 @@ import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
 import Acordeon from '../../blocks/Acordeon/config'
+import Carousel from '@/blocks/Carousel/config'
 
 import {
   MetaDescriptionField,
@@ -76,7 +77,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, Acordeon],
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, Acordeon, Carousel],
               required: true,
               admin: {
                 initCollapsed: true,

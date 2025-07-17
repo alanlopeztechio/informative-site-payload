@@ -8,6 +8,7 @@ import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { Acordeon } from './Acordeon/Component'
+import { Carousel } from './Carousel/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -16,6 +17,7 @@ const blockComponents = {
   acordeon: Acordeon,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
+  carousel: Carousel,
 }
 
 export const RenderBlocks: React.FC<{
