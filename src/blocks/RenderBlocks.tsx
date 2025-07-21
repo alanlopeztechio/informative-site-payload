@@ -9,7 +9,8 @@ import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import ImagenConTextoComponent from '@/blocks/ImagenConTextoComponent'
 import { ContetWithMediaBlock } from './ContentWithMedia/Component'
-import { BloqueInformativoComponent } from '@/blocks/BloqueInformativo/Component'
+import BloqueInformativoComponent from '@/blocks/BloqueInformativo/Component'
+
 const blockComponents: Record<string, FC<any>> = {
   archive: ArchiveBlock,
   content: ContentBlock,
