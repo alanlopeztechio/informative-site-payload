@@ -1,40 +1,33 @@
 import React from 'react'
-import { LucideIcon, icons } from 'lucide-react'
-import { BloqueInformativo } from './config'
-import RichText from '@/components/RichText'
-
-// Tipamos las claves válidas de los íconos
-type IconKey = keyof typeof icons
 
 type Props = {
-  icono?: IconKey
   titulo: string
-  subtitulo?: string
-  contenido: any
+  descripcionCorta: string
+  descripcionLarga: string
+  icono: {
+    url?: string
+    alt?: string
+  }
 }
 
-export const BloqueInformativoComponent: React.FC<Props> = ({
-  icono = 'info',
+const BloqueInformativo: React.FC<Props> = ({
   titulo,
-  subtitulo,
-  contenido,
+  descripcionCorta,
+  descripcionLarga,
+  icono,
 }) => {
-  const Icon: LucideIcon = icons[icono as IconKey] || icons['Info']
-
   return (
-    <div className="bg-white rounded-xl shadow p-6 mb-6 max-w-5xl mx-auto">
-      <div className="flex items-start gap-4">
-        <div className="text-teal-600">
-          <Icon size={28} strokeWidth={2.5} />
-        </div>
+    <div className="bg-white shadow rounded-lg p-6 max-w-4xl mx-auto">
+      <div className="flex items-start space-x-4">
+        {icono?.url && <img src={icono.url} alt={icono.alt || 'Ícono'} className="w-8 h-8 mt-1" />}
         <div>
-          <h3 className="text-xl font-bold text-teal-700">{titulo}</h3>
-          {subtitulo && <p className="text-sm text-gray-500">{subtitulo}</p>}
-          <div className="mt-3 text-gray-700 leading-relaxed">
-            <RichText data={contenido} />
-          </div>
+          <h3 className="text-lg font-semibold text-emerald-700">{titulo}</h3>
+          <p className="text-sm text-gray-600 mb-2">{descripcionCorta}</p>
+          <p className="text-sm text-gray-800 whitespace-pre-line">{descripcionLarga}</p>
         </div>
       </div>
     </div>
   )
 }
+
+export default BloqueInformativo
