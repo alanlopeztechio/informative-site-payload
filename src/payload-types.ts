@@ -191,7 +191,39 @@ export interface Page {
       | null;
     media?: (number | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | ContentWithMedia | Slider)[];
+  layout: (
+    | CallToActionBlock
+    | ContentBlock
+    | MediaBlock
+    | ArchiveBlock
+    | FormBlock
+    | {
+        titulo: string;
+        items?:
+          | {
+              titulo: string;
+              contenido: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'acordeon';
+      }
+    | {
+        titulo: string;
+        imagenes?:
+          | {
+              imagen: number | Media;
+              alt?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'carousel';
+      }
+  )[];
   meta?: {
     title?: string | null;
     /**
@@ -736,49 +768,6 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ContentWithMedia".
- */
-export interface ContentWithMedia {
-  content?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  image?: (number | null) | Media;
-  textPosition?: ('Left' | 'Right') | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'contentWithMedia';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Slider".
- */
-export interface Slider {
-  slider?:
-    | {
-        userTeam?: string | null;
-        userDescription?: string | null;
-        image?: (number | null) | Media;
-        id?: string | null;
-      }[]
-    | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'slider';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1068,8 +1057,34 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
-        contentWithMedia?: T | ContentWithMediaSelect<T>;
-        slider?: T | SliderSelect<T>;
+        acordeon?:
+          | T
+          | {
+              titulo?: T;
+              items?:
+                | T
+                | {
+                    titulo?: T;
+                    contenido?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        carousel?:
+          | T
+          | {
+              titulo?: T;
+              imagenes?:
+                | T
+                | {
+                    imagen?: T;
+                    alt?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
       };
   meta?:
     | T
@@ -1166,33 +1181,6 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ContentWithMedia_select".
- */
-export interface ContentWithMediaSelect<T extends boolean = true> {
-  content?: T;
-  image?: T;
-  textPosition?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "Slider_select".
- */
-export interface SliderSelect<T extends boolean = true> {
-  slider?:
-    | T
-    | {
-        userTeam?: T;
-        userDescription?: T;
-        image?: T;
-        id?: T;
-      };
   id?: T;
   blockName?: T;
 }
