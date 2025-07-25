@@ -197,9 +197,32 @@ export interface Page {
     | MediaBlock
     | ArchiveBlock
     | FormBlock
-    | ContentWithMedia
-    | ImagenConTextoBlock
-    | BloqueInformativo
+    | {
+        titulo: string;
+        items?:
+          | {
+              titulo: string;
+              contenido: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'acordeon';
+      }
+    | {
+        titulo: string;
+        imagenes?:
+          | {
+              imagen: number | Media;
+              alt?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'carousel';
+      }
   )[];
   meta?: {
     title?: string | null;
@@ -1129,9 +1152,34 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
-        contentWithMedia?: T | ContentWithMediaSelect<T>;
-        imagenConTexto?: T | ImagenConTextoBlockSelect<T>;
-        BloqueInformativo?: T | BloqueInformativoSelect<T>;
+        acordeon?:
+          | T
+          | {
+              titulo?: T;
+              items?:
+                | T
+                | {
+                    titulo?: T;
+                    contenido?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        carousel?:
+          | T
+          | {
+              titulo?: T;
+              imagenes?:
+                | T
+                | {
+                    imagen?: T;
+                    alt?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
       };
   meta?:
     | T

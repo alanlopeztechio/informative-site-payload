@@ -7,18 +7,17 @@ import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
-import ImagenConTextoComponent from '@/blocks/ImagenConTextoComponent'
-import { ContetWithMediaBlock } from './ContentWithMedia/Component'
-import { BloqueInformativoComponent } from '@/blocks/BloqueInformativo/Component'
-const blockComponents: Record<string, FC<any>> = {
+import { Acordeon } from './Acordeon/Component'
+import { Carousel } from './Carousel/Component'
+
+const blockComponents = {
   archive: ArchiveBlock,
   content: ContentBlock,
   cta: CallToActionBlock,
+  acordeon: Acordeon,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
-  imagenConTexto: ImagenConTextoComponent,
-  contentWithMedia: ContetWithMediaBlock,
-  BloqueInformativo: BloqueInformativoComponent,
+  carousel: Carousel,
 }
 
 export const RenderBlocks: React.FC<{
