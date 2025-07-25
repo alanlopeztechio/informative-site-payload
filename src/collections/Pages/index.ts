@@ -15,6 +15,8 @@ import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
 import Acordeon from '../../blocks/Acordeon/config'
 import Carousel from '@/blocks/Carousel/config'
+import { ImagenConTextoBlock } from '../../blocks/ImagenConTextoBlock'
+import { BloqueInformativo } from '@/blocks/BloqueInformativo/config'
 
 import {
   MetaDescriptionField,
@@ -23,8 +25,6 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
-import { ImagenConTextoBlock } from '../../blocks/ImagenConTextoBlock'
-import { BloqueInformativo } from '@/blocks/BloqueInformativo/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -80,7 +80,18 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, Acordeon, Carousel],
+              blocks: [
+                Archive,
+                Content,
+                CallToAction,
+                MediaBlock,
+                FormBlock,
+                Acordeon,
+                Carousel,
+                ImagenConTextoBlock,
+                BloqueInformativo,
+                ContentWithMedia,
+              ],
               required: true,
               admin: {
                 initCollapsed: true,

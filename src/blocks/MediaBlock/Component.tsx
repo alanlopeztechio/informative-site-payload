@@ -3,10 +3,11 @@ import React from 'react'
 import { cn } from '@/utilities/ui'
 import RichText from '@/components/RichText'
 import { Media } from '../../components/Media'
+import { MediaBlock as Prop } from '@/payload-types'
 
 type ImageSize = 'sm' | 'md' | 'lg'
 
-type Props = {
+type Props = Prop & {
   media?: any
   caption?: any
   imageSize?: ImageSize

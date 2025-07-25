@@ -192,37 +192,16 @@ export interface Page {
     media?: (number | null) | Media;
   };
   layout: (
-    | CallToActionBlock
-    | ContentBlock
-    | MediaBlock
     | ArchiveBlock
+    | ContentBlock
+    | CallToActionBlock
+    | MediaBlock
     | FormBlock
-    | {
-        titulo: string;
-        items?:
-          | {
-              titulo: string;
-              contenido: string;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'acordeon';
-      }
-    | {
-        titulo: string;
-        imagenes?:
-          | {
-              imagen: number | Media;
-              alt?: string | null;
-              id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'carousel';
-      }
+    | AcordeonBlock
+    | CarouselBlock
+    | ImagenConTextoBlock
+    | BloqueInformativo
+    | ContentWithMedia
   )[];
   meta?: {
     title?: string | null;
@@ -426,10 +405,10 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CallToActionBlock".
+ * via the `definition` "ArchiveBlock".
  */
-export interface CallToActionBlock {
-  richText?: {
+export interface ArchiveBlock {
+  introContent?: {
     root: {
       type: string;
       children: {
@@ -444,33 +423,19 @@ export interface CallToActionBlock {
     };
     [k: string]: unknown;
   } | null;
-  links?:
+  populateBy?: ('collection' | 'selection') | null;
+  relationTo?: 'posts' | null;
+  categories?: (number | Category)[] | null;
+  limit?: number | null;
+  selectedDocs?:
     | {
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?:
-            | ({
-                relationTo: 'pages';
-                value: number | Page;
-              } | null)
-            | ({
-                relationTo: 'posts';
-                value: number | Post;
-              } | null);
-          url?: string | null;
-          label: string;
-          /**
-           * Choose how the link should be rendered.
-           */
-          appearance?: ('default' | 'outline') | null;
-        };
-        id?: string | null;
+        relationTo: 'posts';
+        value: number | Post;
       }[]
     | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'cta';
+  blockType: 'archive';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -524,6 +489,54 @@ export interface ContentBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CallToActionBlock".
+ */
+export interface CallToActionBlock {
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: number | Page;
+              } | null)
+            | ({
+                relationTo: 'posts';
+                value: number | Post;
+              } | null);
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'cta';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "MediaBlock".
  */
 export interface MediaBlock {
@@ -547,40 +560,6 @@ export interface MediaBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'mediaBlock';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ArchiveBlock".
- */
-export interface ArchiveBlock {
-  introContent?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  populateBy?: ('collection' | 'selection') | null;
-  relationTo?: 'posts' | null;
-  categories?: (number | Category)[] | null;
-  limit?: number | null;
-  selectedDocs?:
-    | {
-        relationTo: 'posts';
-        value: number | Post;
-      }[]
-    | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'archive';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -784,29 +763,37 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ContentWithMedia".
+ * via the `definition` "AcordeonBlock".
  */
-export interface ContentWithMedia {
-  content?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  image?: (number | null) | Media;
-  textPosition?: ('Left' | 'Right') | null;
+export interface AcordeonBlock {
+  titulo: string;
+  items?:
+    | {
+        titulo: string;
+        contenido: string;
+        id?: string | null;
+      }[]
+    | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'contentWithMedia';
+  blockType: 'acordeon';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CarouselBlock".
+ */
+export interface CarouselBlock {
+  titulo: string;
+  imagenes?:
+    | {
+        imagen: number | Media;
+        alt?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'carousel';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -846,7 +833,33 @@ export interface BloqueInformativo {
   icono: number | Media;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'BloqueInformativo';
+  blockType: 'bloqueInformativo';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContentWithMedia".
+ */
+export interface ContentWithMedia {
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  image?: (number | null) | Media;
+  textPosition?: ('Left' | 'Right') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'contentWithMedia';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1134,39 +1147,16 @@ export interface PagesSelect<T extends boolean = true> {
   layout?:
     | T
     | {
-        cta?: T | CallToActionBlockSelect<T>;
-        content?: T | ContentBlockSelect<T>;
-        mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
+        content?: T | ContentBlockSelect<T>;
+        cta?: T | CallToActionBlockSelect<T>;
+        mediaBlock?: T | MediaBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
-        acordeon?:
-          | T
-          | {
-              titulo?: T;
-              items?:
-                | T
-                | {
-                    titulo?: T;
-                    contenido?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        carousel?:
-          | T
-          | {
-              titulo?: T;
-              imagenes?:
-                | T
-                | {
-                    imagen?: T;
-                    alt?: T;
-                    id?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
+        acordeon?: T | AcordeonBlockSelect<T>;
+        carousel?: T | CarouselBlockSelect<T>;
+        imagenConTexto?: T | ImagenConTextoBlockSelect<T>;
+        bloqueInformativo?: T | BloqueInformativoSelect<T>;
+        contentWithMedia?: T | ContentWithMediaSelect<T>;
       };
   meta?:
     | T
@@ -1184,25 +1174,15 @@ export interface PagesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CallToActionBlock_select".
+ * via the `definition` "ArchiveBlock_select".
  */
-export interface CallToActionBlockSelect<T extends boolean = true> {
-  richText?: T;
-  links?:
-    | T
-    | {
-        link?:
-          | T
-          | {
-              type?: T;
-              newTab?: T;
-              reference?: T;
-              url?: T;
-              label?: T;
-              appearance?: T;
-            };
-        id?: T;
-      };
+export interface ArchiveBlockSelect<T extends boolean = true> {
+  introContent?: T;
+  populateBy?: T;
+  relationTo?: T;
+  categories?: T;
+  limit?: T;
+  selectedDocs?: T;
   id?: T;
   blockName?: T;
 }
@@ -1234,26 +1214,36 @@ export interface ContentBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CallToActionBlock_select".
+ */
+export interface CallToActionBlockSelect<T extends boolean = true> {
+  richText?: T;
+  links?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "MediaBlock_select".
  */
 export interface MediaBlockSelect<T extends boolean = true> {
   media?: T;
   caption?: T;
   imageSize?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ArchiveBlock_select".
- */
-export interface ArchiveBlockSelect<T extends boolean = true> {
-  introContent?: T;
-  populateBy?: T;
-  relationTo?: T;
-  categories?: T;
-  limit?: T;
-  selectedDocs?: T;
   id?: T;
   blockName?: T;
 }
@@ -1270,12 +1260,33 @@ export interface FormBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ContentWithMedia_select".
+ * via the `definition` "AcordeonBlock_select".
  */
-export interface ContentWithMediaSelect<T extends boolean = true> {
-  content?: T;
-  image?: T;
-  textPosition?: T;
+export interface AcordeonBlockSelect<T extends boolean = true> {
+  titulo?: T;
+  items?:
+    | T
+    | {
+        titulo?: T;
+        contenido?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CarouselBlock_select".
+ */
+export interface CarouselBlockSelect<T extends boolean = true> {
+  titulo?: T;
+  imagenes?:
+    | T
+    | {
+        imagen?: T;
+        alt?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -1300,6 +1311,17 @@ export interface BloqueInformativoSelect<T extends boolean = true> {
   descripcionCorta?: T;
   descripcionLarga?: T;
   icono?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContentWithMedia_select".
+ */
+export interface ContentWithMediaSelect<T extends boolean = true> {
+  content?: T;
+  image?: T;
+  textPosition?: T;
   id?: T;
   blockName?: T;
 }

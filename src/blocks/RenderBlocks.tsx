@@ -9,22 +9,22 @@ import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { Acordeon } from './Acordeon/Component'
 import { Carousel } from './Carousel/Component'
-
-const blockComponents = {
 import ImagenConTextoComponent from '@/blocks/ImagenConTextoComponent'
 import { ContetWithMediaBlock } from './ContentWithMedia/Component'
 import BloqueInformativoComponent from '@/blocks/BloqueInformativo/Component'
 
-const blockComponents: Record<string, FC<any>> = {
+const blockComponents = {
   archive: ArchiveBlock,
   content: ContentBlock,
   cta: CallToActionBlock,
-  acordeon: Acordeon,
-  formBlock: FormBlock,
   mediaBlock: MediaBlock,
+  formBlock: FormBlock,
+  acordeon: Acordeon,
   carousel: Carousel,
+  imagenConTexto: ImagenConTextoComponent,
+  contentWithMedia: ContetWithMediaBlock,
+  bloqueInformativo: BloqueInformativoComponent,
 }
-
 export const RenderBlocks: React.FC<{
   blocks: Page['layout'][0][]
 }> = (props) => {
@@ -44,6 +44,7 @@ export const RenderBlocks: React.FC<{
             if (Block) {
               return (
                 <div className="my-16" key={index}>
+                  {/* @ts-expect-error there may be some mismatch between the expected types here */}
                   <Block {...block} disableInnerContainer />
                 </div>
               )

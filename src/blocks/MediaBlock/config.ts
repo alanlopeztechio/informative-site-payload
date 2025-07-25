@@ -31,7 +31,6 @@ export const MediaBlock: Block = {
         features: [HeadingFeature(), InlineToolbarFeature(), FixedToolbarFeature()],
       }),
     },
-
     {
       name: 'imageSize',
       label: 'Tamaño de imagen',
