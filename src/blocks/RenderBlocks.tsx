@@ -11,6 +11,10 @@ import { ContetWithMediaBlock } from './ContentWithMedia/Component'
 import { SliderCompnent } from './SliderBlock/config'
 import Acordeon from './Acordeon/config'
 import Carousel from './Carousel/config'
+import { RowComponent } from './Row/Component'
+import { ColumnComponent } from './Column/Component'
+import { SectionComponent } from './Section/Component'
+import { TextComponent } from './Text/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -22,6 +26,10 @@ const blockComponents = {
   carousel: Carousel,
   contentWithMedia: ContetWithMediaBlock,
   slider: SliderCompnent,
+  row: RowComponent,
+  column: ColumnComponent,
+  section: SectionComponent,
+  text: TextComponent,
 }
 
 export const RenderBlocks: React.FC<{

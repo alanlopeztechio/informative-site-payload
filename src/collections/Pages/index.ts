@@ -8,9 +8,12 @@ import { Content } from '../../blocks/Content/config'
 import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { ContentWithMedia } from '@/blocks/ContentWithMedia/config'
-
+import { Text } from '@/blocks/Text/config'
+import { Column } from '@/blocks/Column/config'
+import { Row } from '@/blocks/Row/config'
 import { hero } from '@/heros/config'
 import { slugField } from '@/fields/slug'
+import { Section } from '@/blocks/Section/config'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
@@ -88,6 +91,10 @@ export const Pages: CollectionConfig<'pages'> = {
                 Acordeon,
                 Carousel,
                 ContentWithMedia,
+                Text,
+                Row,
+                Column,
+                Section,
               ],
               required: true,
               admin: {
