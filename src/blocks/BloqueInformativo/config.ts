@@ -1,13 +1,4 @@
-import {
-  lexicalEditor,
-  HeadingFeature,
-  InlineToolbarFeature,
-  FixedToolbarFeature,
-  UnorderedListFeature, //
-} from '@payloadcms/richtext-lexical'
-
-import type { Block } from 'payload'
-import { icons } from 'lucide-react' // Solo para generar las opciones del select
+import { Block } from 'payload'
 
 export const BloqueInformativo: Block = {
   slug: 'BloqueInformativo',
@@ -20,26 +11,26 @@ export const BloqueInformativo: Block = {
     {
       name: 'titulo',
       type: 'text',
-      label: 'Título',
       required: true,
     },
     {
-      name: 'subtitulo',
+      name: 'descripcionCorta',
       type: 'text',
-      label: 'Subtítulo',
+      required: true,
     },
     {
-      name: 'contenido',
-      type: 'richText',
-      label: 'Contenido con formato',
-      editor: lexicalEditor({
-        features: [
-          HeadingFeature(),
-          InlineToolbarFeature(),
-          FixedToolbarFeature(),
-          UnorderedListFeature(),
-        ],
-      }),
+      name: 'descripcionLarga',
+      type: 'textarea',
+      required: true,
+    },
+    {
+      name: 'icono',
+      label: 'Ícono (SVG o PNG)',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
     },
   ],
 }
+
+export default BloqueInformativo

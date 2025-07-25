@@ -11,6 +11,11 @@ import { Acordeon } from './Acordeon/Component'
 import { Carousel } from './Carousel/Component'
 
 const blockComponents = {
+import ImagenConTextoComponent from '@/blocks/ImagenConTextoComponent'
+import { ContetWithMediaBlock } from './ContentWithMedia/Component'
+import BloqueInformativoComponent from '@/blocks/BloqueInformativo/Component'
+
+const blockComponents: Record<string, FC<any>> = {
   archive: ArchiveBlock,
   content: ContentBlock,
   cta: CallToActionBlock,
