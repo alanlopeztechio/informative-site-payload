@@ -1,6 +1,6 @@
 import { Block } from 'payload'
 
-const Carousel: Block = {
+export const Carousel: Block = {
   slug: 'carousel',
   interfaceName: 'CarouselBlock',
   fields: [
@@ -29,5 +29,3 @@ const Carousel: Block = {
     },
   ],
 }
-
-export default Carousel

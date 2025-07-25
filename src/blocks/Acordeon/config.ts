@@ -1,6 +1,6 @@
 import { Block } from 'payload'
 
-const Acordeon: Block = {
+export const Acordeon: Block = {
   slug: 'acordeon',
   interfaceName: 'AcordeonBlock',
   fields: [
@@ -28,5 +28,3 @@ const Acordeon: Block = {
     },
   ],
 }
-
-export default Acordeon

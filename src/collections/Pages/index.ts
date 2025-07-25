@@ -13,8 +13,8 @@ import { slugField } from '@/fields/slug'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
-import Acordeon from '../../blocks/Acordeon/config'
-import Carousel from '@/blocks/Carousel/config'
+import { Acordeon as AcordeonBlock } from '@/blocks/Acordeon/config'
+import { Carousel } from '@/blocks/Carousel/config'
 import { ImagenConTextoBlock } from '../../blocks/ImagenConTextoBlock'
 import { BloqueInformativo } from '@/blocks/BloqueInformativo/config'
 
@@ -86,7 +86,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 CallToAction,
                 MediaBlock,
                 FormBlock,
-                Acordeon,
+                AcordeonBlock,
                 Carousel,
                 ImagenConTextoBlock,
                 BloqueInformativo,
