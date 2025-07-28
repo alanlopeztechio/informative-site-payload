@@ -8,6 +8,7 @@ import { Content } from '../../blocks/Content/config'
 import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { ContentWithMedia } from '@/blocks/ContentWithMedia/config'
+import { PriceBlock } from '@/blocks/PriceBlock/config'
 import { hero } from '@/heros/config'
 import { slugField } from '@/fields/slug'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
@@ -91,6 +92,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 ImagenConTextoBlock,
                 BloqueInformativo,
                 ContentWithMedia,
+                PriceBlock,
               ],
               required: true,
               admin: {

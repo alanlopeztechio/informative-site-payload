@@ -19,7 +19,6 @@ export const MediaBlock: Block = {
       label: 'Imagen',
       type: 'upload',
       relationTo: 'media',
-
       required: true,
     },
     {

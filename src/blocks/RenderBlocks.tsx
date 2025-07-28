@@ -12,6 +12,7 @@ import { Carousel } from './Carousel/Component'
 import ImagenConTextoComponent from '@/blocks/ImagenConTextoComponent'
 import { ContetWithMediaBlock } from './ContentWithMedia/Component'
 import BloqueInformativoComponent from '@/blocks/BloqueInformativo/Component'
+import { PriceBlockComponent } from './PriceBlock/Components'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -24,6 +25,7 @@ const blockComponents = {
   imagenConTexto: ImagenConTextoComponent,
   contentWithMedia: ContetWithMediaBlock,
   bloqueInformativo: BloqueInformativoComponent,
+  priceBlock: PriceBlockComponent,
 }
 export const RenderBlocks: React.FC<{
   blocks: Page['layout'][0][]

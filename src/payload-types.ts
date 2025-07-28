@@ -72,6 +72,7 @@ export interface Config {
     media: Media;
     categories: Category;
     users: User;
+    prices: Price;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -88,6 +89,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
+    prices: PricesSelect<false> | PricesSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -202,6 +204,7 @@ export interface Page {
     | ImagenConTextoBlock
     | BloqueInformativo
     | ContentWithMedia
+    | PriceBlock
   )[];
   meta?: {
     title?: string | null;
@@ -863,6 +866,34 @@ export interface ContentWithMedia {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PriceBlock".
+ */
+export interface PriceBlock {
+  price: number | Price;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'priceBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "prices".
+ */
+export interface Price {
+  id: number;
+  precio: number;
+  titulo: string;
+  descripcion?: string | null;
+  funciones?:
+    | {
+        funcion?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1055,6 +1086,10 @@ export interface PayloadLockedDocument {
         value: number | User;
       } | null)
     | ({
+        relationTo: 'prices';
+        value: number | Price;
+      } | null)
+    | ({
         relationTo: 'redirects';
         value: number | Redirect;
       } | null)
@@ -1157,6 +1192,7 @@ export interface PagesSelect<T extends boolean = true> {
         imagenConTexto?: T | ImagenConTextoBlockSelect<T>;
         bloqueInformativo?: T | BloqueInformativoSelect<T>;
         contentWithMedia?: T | ContentWithMediaSelect<T>;
+        priceBlock?: T | PriceBlockSelect<T>;
       };
   meta?:
     | T
@@ -1327,6 +1363,15 @@ export interface ContentWithMediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "PriceBlock_select".
+ */
+export interface PriceBlockSelect<T extends boolean = true> {
+  price?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts_select".
  */
 export interface PostsSelect<T extends boolean = true> {
@@ -1491,6 +1536,23 @@ export interface UsersSelect<T extends boolean = true> {
         createdAt?: T;
         expiresAt?: T;
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "prices_select".
+ */
+export interface PricesSelect<T extends boolean = true> {
+  precio?: T;
+  titulo?: T;
+  descripcion?: T;
+  funciones?:
+    | T
+    | {
+        funcion?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
