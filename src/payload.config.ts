@@ -16,7 +16,6 @@ import { Header } from './Header/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
-import { sqliteAdapter } from '@payloadcms/db-sqlite'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
