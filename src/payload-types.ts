@@ -205,6 +205,10 @@ export interface Page {
     | BloqueInformativo
     | ContentWithMedia
     | PriceBlock
+    | TextBlock
+    | RowBlock
+    | ColumnBlock
+    | SectionBlock
   )[];
   meta?: {
     title?: string | null;
@@ -894,6 +898,62 @@ export interface Price {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TextBlock".
+ */
+export interface TextBlock {
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'text';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RowBlock".
+ */
+export interface RowBlock {
+  totalWidth?: string | null;
+  columns?: ColumnBlock[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'row';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ColumnBlock".
+ */
+export interface ColumnBlock {
+  content?: (TextBlock | MediaBlock)[] | null;
+  columnWidth: 'auto' | '4/5' | '3/4' | '2/3' | '1/2' | '1/3' | '1/4' | '1/5';
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'column';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SectionBlock".
+ */
+export interface SectionBlock {
+  rows?: RowBlock[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'section';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1193,6 +1253,10 @@ export interface PagesSelect<T extends boolean = true> {
         bloqueInformativo?: T | BloqueInformativoSelect<T>;
         contentWithMedia?: T | ContentWithMediaSelect<T>;
         priceBlock?: T | PriceBlockSelect<T>;
+        text?: T | TextBlockSelect<T>;
+        row?: T | RowBlockSelect<T>;
+        column?: T | ColumnBlockSelect<T>;
+        section?: T | SectionBlockSelect<T>;
       };
   meta?:
     | T
@@ -1367,6 +1431,57 @@ export interface ContentWithMediaSelect<T extends boolean = true> {
  */
 export interface PriceBlockSelect<T extends boolean = true> {
   price?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TextBlock_select".
+ */
+export interface TextBlockSelect<T extends boolean = true> {
+  content?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RowBlock_select".
+ */
+export interface RowBlockSelect<T extends boolean = true> {
+  totalWidth?: T;
+  columns?:
+    | T
+    | {
+        column?: T | ColumnBlockSelect<T>;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ColumnBlock_select".
+ */
+export interface ColumnBlockSelect<T extends boolean = true> {
+  content?:
+    | T
+    | {
+        text?: T | TextBlockSelect<T>;
+        mediaBlock?: T | MediaBlockSelect<T>;
+      };
+  columnWidth?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SectionBlock_select".
+ */
+export interface SectionBlockSelect<T extends boolean = true> {
+  rows?:
+    | T
+    | {
+        row?: T | RowBlockSelect<T>;
+      };
   id?: T;
   blockName?: T;
 }
