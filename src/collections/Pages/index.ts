@@ -7,7 +7,6 @@ import { CallToAction } from '../../blocks/CallToAction/config'
 import { Content } from '../../blocks/Content/config'
 import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
-import { ContentWithMedia } from '@/blocks/ContentWithMedia/config'
 import { PriceBlock } from '@/blocks/PriceBlock/config'
 import { ContentWithMedia } from '@/blocks/ContentWithMedia/config'
 import { Text } from '@/blocks/Text/config'
@@ -19,8 +18,6 @@ import { Section } from '@/blocks/Section/config'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
-import Acordeon from '../../blocks/Acordeon/config'
-import Carousel from '@/blocks/Carousel/config'
 import { Acordeon as AcordeonBlock } from '@/blocks/Acordeon/config'
 import { Carousel } from '@/blocks/Carousel/config'
 import { ImagenConTextoBlock } from '../../blocks/ImagenConTextoBlock'
@@ -88,20 +85,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [
-                CallToAction,
-                Content,
-                MediaBlock,
-                Archive,
-                FormBlock,
-                Acordeon,
-                Carousel,
-                ContentWithMedia,
-                Text,
-                Row,
-                Column,
-                Section,
-              ],
+
               blocks: [
                 Archive,
                 Content,
@@ -114,6 +98,10 @@ export const Pages: CollectionConfig<'pages'> = {
                 BloqueInformativo,
                 ContentWithMedia,
                 PriceBlock,
+                Text,
+                Row,
+                Column,
+                Section,
               ],
               required: true,
               admin: {

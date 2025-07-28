@@ -13,6 +13,10 @@ import ImagenConTextoComponent from '@/blocks/ImagenConTextoComponent'
 import { ContetWithMediaBlock } from './ContentWithMedia/Component'
 import BloqueInformativoComponent from '@/blocks/BloqueInformativo/Component'
 import { PriceBlockComponent } from './PriceBlock/Components'
+import { RowComponent } from './Row/Component'
+import { ColumnComponent } from './Column/Component'
+import { SectionComponent } from './Section/Component'
+import { TextComponent } from './Text/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -26,6 +30,10 @@ const blockComponents = {
   contentWithMedia: ContetWithMediaBlock,
   bloqueInformativo: BloqueInformativoComponent,
   priceBlock: PriceBlockComponent,
+  row: RowComponent,
+  column: ColumnComponent,
+  section: SectionComponent,
+  text: TextComponent,
 }
 export const RenderBlocks: React.FC<{
   blocks: Page['layout'][0][]
