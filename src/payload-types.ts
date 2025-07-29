@@ -936,7 +936,7 @@ export interface RowBlock {
  * via the `definition` "ColumnBlock".
  */
 export interface ColumnBlock {
-  content?: (TextBlock | MediaBlock)[] | null;
+  content?: (TextBlock | MediaBlock | PriceBlock)[] | null;
   columnWidth: 'auto' | '4/5' | '3/4' | '2/3' | '1/2' | '1/3' | '1/4' | '1/5';
   id?: string | null;
   blockName?: string | null;
@@ -1467,6 +1467,7 @@ export interface ColumnBlockSelect<T extends boolean = true> {
     | {
         text?: T | TextBlockSelect<T>;
         mediaBlock?: T | MediaBlockSelect<T>;
+        priceBlock?: T | PriceBlockSelect<T>;
       };
   columnWidth?: T;
   id?: T;
