@@ -8,9 +8,9 @@ export const Section: Block = {
     {
       type: 'blocks',
       name: 'rows',
-      label: 'Rows',
-      blocks: [Row],
-      //blockReferences: ['row'],
+      label: 'Contenido',
+      blocks: [],
+      blockReferences: ['row'],
     },
   ],
 }

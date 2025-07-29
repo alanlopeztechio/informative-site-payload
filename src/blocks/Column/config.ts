@@ -1,7 +1,4 @@
 import { Block } from 'payload'
-import { Text } from '../Text/config'
-import { MediaBlock } from '../MediaBlock/config'
-import { PriceBlock } from '../PriceBlock/config'
 
 export const Column: Block = {
   slug: 'column',
@@ -11,8 +8,8 @@ export const Column: Block = {
       type: 'blocks',
       name: 'content',
       label: 'Content Blocks',
-      blocks: [Text, MediaBlock, PriceBlock],
-      //blockReferences: ['text', 'mediaBlock'],
+      blocks: [],
+      blockReferences: ['text', 'mediaBlock', 'priceBlock', 'formBlock'],
       maxRows: 2,
     },
     {

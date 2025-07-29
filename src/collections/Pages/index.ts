@@ -19,9 +19,9 @@ import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
 import { Acordeon as AcordeonBlock } from '@/blocks/Acordeon/config'
-import { Carousel } from '@/blocks/Carousel/config'
 import { ImagenConTextoBlock } from '../../blocks/ImagenConTextoBlock'
 import { BloqueInformativo } from '@/blocks/BloqueInformativo/config'
+import { Carousel } from '@/blocks/Carousel/config'
 
 import {
   MetaDescriptionField,
@@ -85,23 +85,23 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-
-              blocks: [
-                Archive,
-                Content,
-                CallToAction,
-                MediaBlock,
-                FormBlock,
-                AcordeonBlock,
-                Carousel,
-                ImagenConTextoBlock,
-                BloqueInformativo,
-                ContentWithMedia,
-                PriceBlock,
-                Text,
-                Row,
-                Column,
-                Section,
+              blocks: [],
+              blockReferences: [
+                'acordeon',
+                'archive',
+                'bloqueInformativo',
+                'cta',
+                'carousel',
+                'content',
+                'contentWithMedia',
+                'formBlock',
+                'imagenConTexto',
+                'mediaBlock',
+                'priceBlock',
+                'row',
+                'section',
+                'text',
+                'carouselAvatar',
               ],
               required: true,
               admin: {

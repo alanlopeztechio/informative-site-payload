@@ -31,7 +31,7 @@ export const ColumnWidth: TextFieldClientComponent = (props: TextFieldClientProp
   const percentage =
     results && isNaN(Math.ceil(results.reduce((acc: number, curr: number) => acc + curr, 0)))
       ? '100%'
-      : `${Math.ceil(results.reduce((acc: number, curr: number) => acc + curr, 0))}%`
+      : results && `${Math.ceil(results.reduce((acc: number, curr: number) => acc + curr, 0))}%`
 
   const valid = percentage === '100%'
 

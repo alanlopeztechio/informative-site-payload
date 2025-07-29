@@ -1,9 +1,9 @@
 import { SectionBlock } from '@/payload-types'
 import React from 'react'
-import { RowComponent } from '../Row/Component'
+import { RenderBlocks } from '../RenderBlocks'
 
 export const SectionComponent: React.FC<SectionBlock> = (props) => {
   const { rows: row } = props
 
-  return <section>{row && row.map((row, index) => <RowComponent key={index} {...row} />)}</section>
+  return <section className="container my-16">{row && <RenderBlocks blocks={row} />}</section>
 }

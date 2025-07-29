@@ -17,6 +17,22 @@ import { Header } from './Header/config'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
+import { Row } from './blocks/Row/config'
+import { Column } from './blocks/Column/config'
+import { MediaBlock } from './blocks/MediaBlock/config'
+import { PriceBlock } from './blocks/PriceBlock/config'
+import { FormBlock } from './blocks/Form/config'
+import { Carousel } from './blocks/Carousel/config'
+import { Text } from './blocks/Text/config'
+import { Archive } from './blocks/ArchiveBlock/config'
+import { Content } from './blocks/Content/config'
+import { CallToAction } from './blocks/CallToAction/config'
+import { ContentWithMedia } from './blocks/ContentWithMedia/config'
+import { ImagenConTextoBlock } from './blocks/ImagenConTexto/config'
+import BloqueInformativo from './blocks/BloqueInformativo/config'
+import { Section } from './blocks/Section/config'
+import { Acordeon } from './blocks/Acordeon/config'
+import { CarouselAvatar } from './blocks/CarouselAvatar/config'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -66,6 +82,24 @@ export default buildConfig({
     },
   }),
   collections: [Pages, Posts, Media, Categories, Users, Prices],
+  blocks: [
+    Archive,
+    Content,
+    CallToAction,
+    MediaBlock,
+    FormBlock,
+    Acordeon,
+    ImagenConTextoBlock,
+    BloqueInformativo,
+    ContentWithMedia,
+    PriceBlock,
+    Text,
+    Column,
+    Row,
+    Section,
+    Carousel,
+    CarouselAvatar,
+  ],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [
