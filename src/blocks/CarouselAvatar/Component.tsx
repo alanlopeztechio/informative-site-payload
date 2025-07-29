@@ -16,7 +16,7 @@ export const CarouselAvatar: React.FC<CarouselAvatarBlock> = (props) => {
   const { empleados } = props
 
   return (
-    <div className="py-12">
+    <div className="max-w-6xl mx-auto px-4">
       <ShadCarousel>
         <CarouselContent>
           {empleados?.map((empleado, index) => (
