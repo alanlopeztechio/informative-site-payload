@@ -32,5 +32,3 @@ export const BloqueInformativo: Block = {
     },
   ],
 }
-
-export default BloqueInformativo
