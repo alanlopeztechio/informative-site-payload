@@ -33,7 +33,7 @@ import { BloqueInformativo } from './blocks/BloqueInformativo/config'
 import { Section } from './blocks/Section/config'
 import { Acordeon } from './blocks/Acordeon/config'
 import { CarouselAvatar } from './blocks/CarouselAvatar/config'
-
+import SiteConfig from './globals/siteConfig'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -101,7 +101,7 @@ export default buildConfig({
     CarouselAvatar,
   ],
   cors: [getServerSideURL()].filter(Boolean),
-  globals: [Header, Footer],
+  globals: [Header, Footer, SiteConfig],
   plugins: [
     ...plugins,
     vercelBlobStorage({
