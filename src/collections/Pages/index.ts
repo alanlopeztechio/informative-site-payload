@@ -79,7 +79,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 'acordeon',
                 'imagenConTexto',
                 'contentWithMedia',
-                'BloqueInformativo',
+                'bloqueInformativo',
                 'section',
                 'text',
                 'priceBlock',

@@ -9,7 +9,7 @@ import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { Acordeon } from './Acordeon/Component'
 import { ContetWithMediaBlock } from './ContentWithMedia/Component'
-import BloqueInformativoComponent from '@/blocks/BloqueInformativo/Component'
+import { BloqueInformativoComponet } from '@/blocks/BloqueInformativo/Component'
 import { PriceBlockComponent } from './PriceBlock/Components'
 import { ColumnComponent } from './Column/Component'
 import { RowComponent } from './Row/Component'
@@ -28,7 +28,7 @@ const blockComponents = {
   acordeon: Acordeon,
   imagenConTexto: ImagenConTextoComponent,
   contentWithMedia: ContetWithMediaBlock,
-  BloqueInformativo: BloqueInformativoComponent,
+  bloqueInformativo: BloqueInformativoComponet,
   section: SectionComponent,
   text: TextComponent,
   priceBlock: PriceBlockComponent,

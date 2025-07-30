@@ -1,5 +1,4 @@
 import { Block } from 'payload'
-import { Column } from '../Column/config'
 
 export const Row: Block = {
   slug: 'row',

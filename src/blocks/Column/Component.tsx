@@ -18,7 +18,7 @@ export const ColumnComponent: React.FC<ColumnBlock> = (props) => {
 
   return (
     <div className={`flex flex-col grow-basis-full sm:basis-1/2 ${basisVariant[columnWidth]}`}>
-      {content && <RenderBlocks blocks={content} />}
+      {/* {content && <RenderBlocks blocks={content} />} */}
     </div>
   )
 }

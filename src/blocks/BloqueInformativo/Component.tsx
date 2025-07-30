@@ -1,7 +1,8 @@
+import type { BloqueInformativo } from '@/payload-types'
 import React from 'react'
 
 // Definición de los props que se recibirán en el componente
-type Props = {
+type Props = BloqueInformativo & {
   titulo: string
   descripcionCorta: string
   descripcionLarga: string
@@ -12,7 +13,7 @@ type Props = {
 }
 
 // Componente funcional que representa un bloque informativo
-const BloqueInformativo: React.FC<Props> = ({
+export const BloqueInformativoComponet: React.FC<Props> = ({
   titulo,
   descripcionCorta,
   descripcionLarga,
@@ -50,5 +51,3 @@ const BloqueInformativo: React.FC<Props> = ({
     </div>
   )
 }
-
-export default BloqueInformativo
