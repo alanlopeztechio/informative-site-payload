@@ -1,11 +1,9 @@
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
-
 import sharp from 'sharp' // sharp-import
 import path from 'path'
 import { buildConfig, PayloadRequest } from 'payload'
 import { fileURLToPath } from 'url'
-
 import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
@@ -33,7 +31,7 @@ import { BloqueInformativo } from './blocks/BloqueInformativo/config'
 import { Section } from './blocks/Section/config'
 import { Acordeon } from './blocks/Acordeon/config'
 import { CarouselAvatar } from './blocks/CarouselAvatar/config'
-import SiteConfig from './globals/siteConfig'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -101,7 +99,7 @@ export default buildConfig({
     CarouselAvatar,
   ],
   cors: [getServerSideURL()].filter(Boolean),
-  globals: [Header, Footer, SiteConfig],
+  globals: [Header, Footer],
   plugins: [
     ...plugins,
     vercelBlobStorage({
