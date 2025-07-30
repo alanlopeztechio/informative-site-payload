@@ -1,7 +1,8 @@
 import { Block } from 'payload'
 
 export const BloqueInformativo: Block = {
-  slug: 'BloqueInformativo',
+  slug: 'bloqueInformativo',
+  interfaceName: 'BloqueInformativo',
   labels: {
     singular: 'Bloque Informativo',
     plural: 'Bloques Informativos',
