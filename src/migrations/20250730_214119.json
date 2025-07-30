@@ -1,5 +1,9 @@
 {
-  "id": "8be30247-c736-4713-bac6-66879503168e",
+<<<<<<<< HEAD:src/migrations/20250721_161038.json
+  "id": "55d428d6-aa20-4a04-978f-1cbe2e823da1",
+========
+  "id": "427c7530-a4f7-4708-99e9-fbee4d7af528",
+>>>>>>>> dd3b83b1 (Change my life, I think that It):src/migrations/20250730_214119.json
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -6035,170 +6039,6 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "public.prices_funciones": {
-      "name": "prices_funciones",
-      "schema": "",
-      "columns": {
-        "_order": {
-          "name": "_order",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "_parent_id": {
-          "name": "_parent_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "id": {
-          "name": "id",
-          "type": "varchar",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "funcion": {
-          "name": "funcion",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        }
-      },
-      "indexes": {
-        "prices_funciones_order_idx": {
-          "name": "prices_funciones_order_idx",
-          "columns": [
-            {
-              "expression": "_order",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "prices_funciones_parent_id_idx": {
-          "name": "prices_funciones_parent_id_idx",
-          "columns": [
-            {
-              "expression": "_parent_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        }
-      },
-      "foreignKeys": {
-        "prices_funciones_parent_id_fk": {
-          "name": "prices_funciones_parent_id_fk",
-          "tableFrom": "prices_funciones",
-          "tableTo": "prices",
-          "columnsFrom": [
-            "_parent_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.prices": {
-      "name": "prices",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "serial",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "precio": {
-          "name": "precio",
-          "type": "numeric",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "titulo": {
-          "name": "titulo",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "descripcion": {
-          "name": "descripcion",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "timestamp(3) with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "timestamp(3) with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        }
-      },
-      "indexes": {
-        "prices_updated_at_idx": {
-          "name": "prices_updated_at_idx",
-          "columns": [
-            {
-              "expression": "updated_at",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "prices_created_at_idx": {
-          "name": "prices_created_at_idx",
-          "columns": [
-            {
-              "expression": "created_at",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        }
-      },
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
     "public.redirects": {
       "name": "redirects",
       "schema": "",
@@ -8980,12 +8820,6 @@
           "primaryKey": false,
           "notNull": false
         },
-        "prices_id": {
-          "name": "prices_id",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
         "redirects_id": {
           "name": "redirects_id",
           "type": "integer",
@@ -9128,21 +8962,6 @@
           "columns": [
             {
               "expression": "users_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "payload_locked_documents_rels_prices_id_idx": {
-          "name": "payload_locked_documents_rels_prices_id_idx",
-          "columns": [
-            {
-              "expression": "prices_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
@@ -9301,19 +9120,6 @@
           "tableTo": "users",
           "columnsFrom": [
             "users_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
-        },
-        "payload_locked_documents_rels_prices_fk": {
-          "name": "payload_locked_documents_rels_prices_fk",
-          "tableFrom": "payload_locked_documents_rels",
-          "tableTo": "prices",
-          "columnsFrom": [
-            "prices_id"
           ],
           "columnsTo": [
             "id"
@@ -9691,6 +9497,108 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
+    "public.header_nav_items_submenu": {
+      "name": "header_nav_items_submenu",
+      "schema": "",
+      "columns": {
+        "_order": {
+          "name": "_order",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "_parent_id": {
+          "name": "_parent_id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id": {
+          "name": "id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "link_type": {
+          "name": "link_type",
+          "type": "enum_header_nav_items_submenu_link_type",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'reference'"
+        },
+        "link_new_tab": {
+          "name": "link_new_tab",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_url": {
+          "name": "link_url",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "link_label": {
+          "name": "link_label",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "header_nav_items_submenu_order_idx": {
+          "name": "header_nav_items_submenu_order_idx",
+          "columns": [
+            {
+              "expression": "_order",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "header_nav_items_submenu_parent_id_idx": {
+          "name": "header_nav_items_submenu_parent_id_idx",
+          "columns": [
+            {
+              "expression": "_parent_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "header_nav_items_submenu_parent_id_fk": {
+          "name": "header_nav_items_submenu_parent_id_fk",
+          "tableFrom": "header_nav_items_submenu",
+          "tableTo": "header_nav_items",
+          "columnsFrom": [
+            "_parent_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
     "public.header_nav_items": {
       "name": "header_nav_items",
       "schema": "",
@@ -9738,6 +9646,21 @@
           "type": "varchar",
           "primaryKey": false,
           "notNull": true
+        },
+        "is_button": {
+          "name": "is_button",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        },
+        "button_style": {
+          "name": "button_style",
+          "type": "enum_header_nav_items_button_style",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'default'"
         }
       },
       "indexes": {
@@ -10595,12 +10518,30 @@
         "schedulePublish"
       ]
     },
+    "public.enum_header_nav_items_submenu_link_type": {
+      "name": "enum_header_nav_items_submenu_link_type",
+      "schema": "public",
+      "values": [
+        "reference",
+        "custom"
+      ]
+    },
     "public.enum_header_nav_items_link_type": {
       "name": "enum_header_nav_items_link_type",
       "schema": "public",
       "values": [
         "reference",
         "custom"
+      ]
+    },
+    "public.enum_header_nav_items_button_style": {
+      "name": "enum_header_nav_items_button_style",
+      "schema": "public",
+      "values": [
+        "default",
+        "secondary",
+        "outline",
+        "ghost"
       ]
     },
     "public.enum_footer_nav_items_link_type": {
