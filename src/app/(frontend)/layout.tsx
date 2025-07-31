@@ -14,6 +14,10 @@ import { draftMode } from 'next/headers'
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
 
+// Importamos Header y Footer
+import { Header } from '@/Header/Component'
+import { Footer } from '@/Footer/Component'
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
 
@@ -26,19 +30,23 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </head>
       <body>
         <Providers>
-          <AdminBar
-            adminBarProps={{
-              preview: isEnabled,
-            }}
-          />
-          {children} {/* Ahora sí renderiza el contenido de la página */}
+          <AdminBar adminBarProps={{ preview: isEnabled }} />
+
+          {/*  Agregamos Header */}
+          <Header />
+
+          {/*  Contenido dinámico de cada página */}
+          {children}
+
+          {/*  Agregamos Footer */}
+          <Footer />
         </Providers>
       </body>
     </html>
   )
 }
 
-// Metadata para SEO y redes sociales
+//  Metadata para SEO y redes sociales
 export const metadata: Metadata = {
   metadataBase: new URL(getServerSideURL()),
   openGraph: mergeOpenGraph(),
