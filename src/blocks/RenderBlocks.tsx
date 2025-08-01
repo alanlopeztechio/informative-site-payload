@@ -30,7 +30,7 @@ const blockComponents = {
   contentWithMedia: ContetWithMediaBlock,
   bloqueInformativo: BloqueInformativoComponet,
   section: SectionComponent,
-  text: TextComponent,
+  textBlock: TextComponent,
   priceBlock: PriceBlockComponent,
   column: ColumnComponent,
   row: RowComponent,
