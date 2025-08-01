@@ -7,11 +7,15 @@ import {
   lexicalEditor,
   UnderlineFeature,
   type LinkFields,
+  AlignFeature,
+  FixedToolbarFeature,
 } from '@payloadcms/richtext-lexical'
 
 export const defaultLexical = lexicalEditor({
   features: [
     ParagraphFeature(),
+    FixedToolbarFeature(),
+    AlignFeature(),
     UnderlineFeature(),
     BoldFeature(),
     ItalicFeature(),

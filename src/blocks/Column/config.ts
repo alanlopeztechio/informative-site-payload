@@ -9,7 +9,7 @@ export const Column: Block = {
       name: 'content',
       label: 'Content Blocks',
       blocks: [],
-      blockReferences: ['text', 'mediaBlock', 'priceBlock', 'formBlock'],
+      blockReferences: ['textBlock', 'mediaBlock', 'priceBlock', 'formBlock'],
       maxRows: 2,
     },
     {

@@ -81,7 +81,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 'contentWithMedia',
                 'bloqueInformativo',
                 'section',
-                'text',
+                'textBlock',
                 'priceBlock',
                 'column',
                 'row',

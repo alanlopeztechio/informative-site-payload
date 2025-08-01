@@ -76,7 +76,7 @@ export interface Config {
     bloqueInformativo: BloqueInformativo;
     contentWithMedia: ContentWithMedia;
     priceBlock: PriceBlock;
-    text: TextBlock;
+    textBlock: TextBlock;
     column: ColumnBlock;
     row: RowBlock;
     section: SectionBlock;
@@ -923,7 +923,7 @@ export interface TextBlock {
   };
   id?: string | null;
   blockName?: string | null;
-  blockType: 'text';
+  blockType: 'textBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -21,7 +21,7 @@ import { MediaBlock } from './blocks/MediaBlock/config'
 import { PriceBlock } from './blocks/PriceBlock/config'
 import { FormBlock } from './blocks/Form/config'
 import { Carousel } from './blocks/Carousel/config'
-import { Text } from './blocks/Text/config'
+import { TextBlock } from './blocks/Text/config'
 import { Archive } from './blocks/ArchiveBlock/config'
 import { Content } from './blocks/Content/config'
 import { CallToAction } from './blocks/CallToAction/config'
@@ -91,7 +91,7 @@ export default buildConfig({
     BloqueInformativo,
     ContentWithMedia,
     PriceBlock,
-    Text,
+    TextBlock,
     Column,
     Row,
     Section,
