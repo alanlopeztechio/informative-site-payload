@@ -19,16 +19,18 @@ export const Carousel: React.FC<CarouselBlock> = ({ titulo, imagenes }) => {
           <CarouselContent>
             {typeof imagenes !== 'number' &&
               imagenes?.map((img, i) => (
-                <CarouselItem key={i} className="flex justify-center items-center">
-                  <img
-                    src={
-                      typeof img.imagen === 'string'
-                        ? img.imagen
-                        : (img.imagen as { url: string }).url
-                    }
-                    alt={img.alt || ''}
-                    className="w-full h-64 sm:h-80 md:h-96 lg:h-[500px] object-cover rounded-lg border"
-                  />
+                <CarouselItem key={i} className="flex justify-center items-center min-h-[200px]">
+                  <div className="relative w-full max-w-4xl">
+                    <img
+                      src={
+                        typeof img.imagen === 'string'
+                          ? img.imagen
+                          : (img.imagen as { url: string }).url
+                      }
+                      alt={img.alt || ''}
+                      className="w-full h-auto max-h-[80vh] object-contain rounded-lg border shadow-lg"
+                    />
+                  </div>
                 </CarouselItem>
               ))}
           </CarouselContent>
