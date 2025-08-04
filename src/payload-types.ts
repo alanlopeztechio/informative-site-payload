@@ -895,8 +895,8 @@ export interface RowBlock {
  * via the `definition` "ColumnBlock".
  */
 export interface ColumnBlock {
-  content?: (TextBlock | MediaBlock | PriceBlock | FormBlock)[] | null;
-  columnWidth: 'auto' | '4/5' | '3/4' | '2/3' | '1/2' | '1/3' | '1/4' | '1/5';
+  content?: (TextBlock | MediaBlock | PriceBlock | FormBlock | CarouselAvatarBlock)[] | null;
+  columnWidth: 'auto' | '1/1' | '4/5' | '3/4' | '2/3' | '1/2' | '1/3' | '1/4' | '1/5';
   id?: string | null;
   blockName?: string | null;
   blockType: 'column';
@@ -955,23 +955,6 @@ export interface Price {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CarouselBlock".
- */
-export interface CarouselBlock {
-  titulo: string;
-  imagenes?:
-    | {
-        imagen: number | Media;
-        alt?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'carousel';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "CarouselAvatarBlock".
  */
 export interface CarouselAvatarBlock {
@@ -986,6 +969,23 @@ export interface CarouselAvatarBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'carouselAvatar';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CarouselBlock".
+ */
+export interface CarouselBlock {
+  titulo: string;
+  imagenes?:
+    | {
+        imagen: number | Media;
+        alt?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'carousel';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

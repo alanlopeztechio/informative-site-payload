@@ -9,7 +9,7 @@ export const Column: Block = {
       name: 'content',
       label: 'Content Blocks',
       blocks: [],
-      blockReferences: ['textBlock', 'mediaBlock', 'priceBlock', 'formBlock'],
+      blockReferences: ['textBlock', 'mediaBlock', 'priceBlock', 'formBlock', 'carouselAvatar'],
       maxRows: 2,
     },
     {
@@ -20,6 +20,10 @@ export const Column: Block = {
         {
           label: 'Auto',
           value: 'auto',
+        },
+        {
+          label: '100%',
+          value: '1/1',
         },
         {
           label: '80%',

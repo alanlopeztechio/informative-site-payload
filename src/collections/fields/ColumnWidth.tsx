@@ -20,6 +20,9 @@ export const ColumnWidth: TextFieldClientComponent = (props: TextFieldClientProp
   const results =
     slibingData.columns &&
     columnWidths.map((width: string) => {
+      if (width?.includes('1/1')) {
+        return '100%'
+      }
       if (width?.includes('auto')) {
         return '100%'
       } else {
