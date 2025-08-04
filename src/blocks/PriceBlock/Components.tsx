@@ -19,31 +19,31 @@ export const PriceBlockComponent: React.FC<PriceBlock> = (props) => {
   }
 
   return (
-    <Card className="w-full mx-8">
-      <CardHeader className="text-center space-y-4">
-        <div className="mx-auto rounded-full mb-4 p-3 rounded-full w-fit">
-          <School className="w-6 h-6" />
-        </div>
-        <CardTitle className="text-2xl">{price.titulo}</CardTitle>
-        <CardDescription className="text-base">{price?.descripcion}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        {price.funciones?.map((funcion, index) => {
-          if (funcion == null || typeof funcion !== 'undefined') return null
-          return (
-            <div key={index} className="flex items-center gap-3 pb-2">
-              <Check className="w-4 h-4 text-green-500 flex-shrink-0 " />
-
-              <span className="text-sm">{funcion}</span>
-            </div>
-          )
-        })}
-      </CardContent>
-      <CardFooter>
-        <Button className="w-full" variant="outline">
-          Empezar
-        </Button>
-      </CardFooter>
-    </Card>
+    <div className="w-full mx-4 sm:mx-8 md:mx-16">
+      <Card className="w-full">
+        <CardHeader className="text-center space-y-4">
+          <div className="mx-auto rounded-full mb-4 p-3 rounded-full w-fit">
+            <School className="w-6 h-6" />
+          </div>
+          <CardTitle className="text-2xl">{price.titulo}</CardTitle>
+          <CardDescription className="text-base">{price?.descripcion}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          {price.funciones?.map((funcion, index) => {
+            return (
+              <div key={index} className="flex items-center gap-3 pb-2">
+                <Check className="w-4 h-4 text-green-500 flex-shrink-0 " />
+                <span className="text-sm">{funcion.funcion}</span>
+              </div>
+            )
+          })}
+        </CardContent>
+        <CardFooter>
+          <Button className="w-full" variant="outline">
+            Empezar
+          </Button>
+        </CardFooter>
+      </Card>
+    </div>
   )
 }
