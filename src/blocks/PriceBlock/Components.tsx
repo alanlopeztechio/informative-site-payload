@@ -19,7 +19,7 @@ export const PriceBlockComponent: React.FC<PriceBlock> = (props) => {
   }
 
   return (
-    <div className="w-full mx-4 sm:mx-8 md:mx-16">
+    <div className="w-full px-8">
       <Card className="w-full">
         <CardHeader className="text-center space-y-4">
           <div className="mx-auto rounded-full mb-4 p-3 rounded-full w-fit">
