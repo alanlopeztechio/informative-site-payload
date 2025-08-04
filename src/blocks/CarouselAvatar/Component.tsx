@@ -34,7 +34,6 @@ export const CarouselAvatar: React.FC<CarouselAvatarBlock> = (props) => {
                     )}
                   </div>
                 </div>
-
                 <CardContent>
                   <h1 className="text-xl font-semibold mb-1">{empleado.puesto}</h1>
                   <p className="text-muted-foreground text-sm leading-relaxed">
