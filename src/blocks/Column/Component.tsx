@@ -5,7 +5,7 @@ import { RenderBlocks } from '../RenderBlocks'
 export const ColumnComponent: React.FC<ColumnBlock> = (props) => {
   const { columnWidth, content } = props
 
-  const basisVariant = {
+  const basisVariant: Record<string, string> = {
     auto: 'lg:basis-auto',
     '4/5': 'lg:basis-4/5',
     '3/4': 'lg:basis-3/4',
