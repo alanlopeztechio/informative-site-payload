@@ -485,7 +485,6 @@ export interface Page {
     | CallToActionBlock
     | MediaBlock
     | FormBlock
-    | AcordeonBlock
     | ImagenConTextoBlock
     | ContentWithMedia
     | BloqueInformativo
@@ -788,23 +787,6 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "AcordeonBlock".
- */
-export interface AcordeonBlock {
-  titulo: string;
-  items?:
-    | {
-        titulo: string;
-        contenido: string;
-        id?: string | null;
-      }[]
-    | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'acordeon';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "ImagenConTextoBlock".
  */
 export interface ImagenConTextoBlock {
@@ -986,6 +968,23 @@ export interface CarouselBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'carousel';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AcordeonBlock".
+ */
+export interface AcordeonBlock {
+  titulo: string;
+  items?:
+    | {
+        titulo: string;
+        contenido: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'acordeon';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
