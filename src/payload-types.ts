@@ -71,7 +71,6 @@ export interface Config {
     cta: CallToActionBlock;
     mediaBlock: MediaBlock;
     formBlock: FormBlock;
-    acordeon: AcordeonBlock;
     imagenConTexto: ImagenConTextoBlock;
     bloqueInformativo: BloqueInformativo;
     contentWithMedia: ContentWithMedia;
@@ -968,23 +967,6 @@ export interface CarouselBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'carousel';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "AcordeonBlock".
- */
-export interface AcordeonBlock {
-  titulo: string;
-  items?:
-    | {
-        titulo: string;
-        contenido: string;
-        id?: string | null;
-      }[]
-    | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'acordeon';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

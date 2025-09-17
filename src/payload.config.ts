@@ -86,7 +86,6 @@ export default buildConfig({
     CallToAction,
     MediaBlock,
     FormBlock,
-    Acordeon,
     ImagenConTextoBlock,
     BloqueInformativo,
     ContentWithMedia,
